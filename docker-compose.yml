@@ -3,7 +3,9 @@ version: '3.8'
 services:
   db:
     container_name: postgres
-    build: ./postgres
+    build:
+      context: ./postgres
+      dockerfile: Dockerfile
     environment:
       POSTGRES_DB: django_blog
       POSTGRES_USER: blogger
