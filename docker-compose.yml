@@ -35,6 +35,7 @@ services:
       - type: bind
         source: ./app
         target: /app
+    restart: unless-stopped
     depends_on:
       - db
 
