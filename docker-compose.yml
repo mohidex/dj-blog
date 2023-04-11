@@ -7,9 +7,9 @@ services:
       context: ./postgres
       dockerfile: Dockerfile
     environment:
-      POSTGRES_DB: django_blog
-      POSTGRES_USER: blogger
-      POSTGRES_PASSWORD: password
+      POSTGRES_DB: blogapp
+      POSTGRES_USER: blogapp
+      POSTGRES_PASSWORD: blogapp
 
     ports:
       - "5432:5432"
@@ -24,10 +24,11 @@ services:
     build:
       context: ./app
       dockerfile: Dockerfile
-    env_file: app/.env
     environment:
-      - DJANGO_SETTINGS_MODULE=blog.settings.development
-    command: poetry run python manage.py runserver 0.0.0.0:8000
+      DEBUG_MODE: "True"
+      DATABASE_HOST: db
+
+    command: python manage.py runserver 0.0.0.0:8000
     ports:
       - "8000:8000"
     volumes:
