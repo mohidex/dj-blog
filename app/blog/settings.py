@@ -28,7 +28,7 @@ INSTALLED_APPS = [
 
 INSTALLED_APPS += [
     "coreapp",
-    "authorapp",
+    "userapp",
     "blogapp"
 ]
 
@@ -111,3 +111,5 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+AUTH_USER_MODEL = "userapp.User"
